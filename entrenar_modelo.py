@@ -43,8 +43,12 @@ modelo = tf.keras.Sequential([
     tf.keras.layers.Dense(len(gestos), activation="softmax")  # Salida con tantas clases como gestos
 ])
 
-# Compilar el modelo
-modelo.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"])
+# Compilar el modelo con un learning rate ajustado
+modelo.compile(
+    optimizer=tf.keras.optimizers.Adam(learning_rate=0.0005),  # Cambia el valor según sea necesario
+    loss="sparse_categorical_crossentropy",
+    metrics=["accuracy"]
+)
 
 # Resumen del modelo
 modelo.summary()
@@ -53,8 +57,8 @@ modelo.summary()
 historial = modelo.fit(X_train, y_train, epochs=50, batch_size=32, validation_data=(X_test, y_test))
 
 # Guardar el modelo entrenado
-modelo.save("ProyectosTensorFlow/gestos_modelo.h5")
-print("Modelo guardado como 'gestos_modelo.h5'")
+modelo.save("ProyectosTensorFlow/gestos_modelo.keras")
+print("Modelo guardado como 'gestos_modelo.keras'")
 
 # Evaluar el modelo
 loss, accuracy = modelo.evaluate(X_test, y_test)
