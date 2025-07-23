@@ -7,7 +7,7 @@ import numpy as np  # Biblioteca para manipulación de datos numéricos.
 modelo = tf.keras.models.load_model("ProyectosTensorFlow/gestos_modelo.keras")
 
 # Lista de nombres de gestos (debe coincidir con las clases del modelo entrenado).
-gestos = ["papel","tijera","piedra", "spock", "lagarto", "bien", "mal"]
+gestos = ["papel","tijera","piedra", "lagarto", "bien", "mal"]
 
 # Inicializa los módulos de MediaPipe para detección de manos.
 mp_hands = mp.solutions.hands  # Carga el módulo de detección de manos.
