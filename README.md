@@ -1,0 +1,1 @@
+## Proyecto usando python 3.10.11 en un entorno virtual
