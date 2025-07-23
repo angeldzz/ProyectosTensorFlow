@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 carpeta_datos = "ProyectosTensorFlow/datos"
 
 # Lista de gestos (debe coincidir con los nombres de los archivos CSV)
-gestos = ["hola", "bien", "mal", "piedra", "spock", "lagarto"]
+gestos = ["papel","tijera","piedra", "spock", "lagarto", "bien", "mal"]
 
 # Cargar los datos desde los archivos CSV
 def cargar_datos(carpeta, gestos):

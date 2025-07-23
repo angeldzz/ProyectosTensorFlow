@@ -4,7 +4,7 @@ import numpy as np
 import os
 import csv
 
-GESTO = "piedra"  # ← Cambia este valor por el nombre del gesto actual que quieres grabar
+GESTO = "mal"  # ← Cambia este valor por el nombre del gesto actual que quieres grabar
 
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands()
@@ -41,7 +41,7 @@ while True:
 
             # Guardar si se pulsa 's'
             if cv2.waitKey(1) & 0xFF == ord('s'):
-                writer.writerow(puntos + ";")
+                writer.writerow(puntos)
                 print(f"[GUARDADO] Ejemplo de '{GESTO}' añadido.")
 
     cv2.imshow("Recolectar Gesto", frame)
