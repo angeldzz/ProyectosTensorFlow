@@ -4,7 +4,7 @@ import tensorflow as tf  # Biblioteca para trabajar con modelos de aprendizaje a
 import numpy as np  # Biblioteca para manipulación de datos numéricos.
 
 # Carga el modelo de TensorFlow previamente entrenado para clasificar gestos.
-modelo = tf.keras.models.load_model("gestos_modelo.h5")
+modelo = tf.keras.models.load_model("ProyectosTensorFlow/gestos_modelo.h5")
 
 # Lista de nombres de gestos (debe coincidir con las clases del modelo entrenado).
 gestos = ["hola","bien","mal","piedra","spock","lagarto"]
