@@ -4,7 +4,7 @@ import numpy as np
 import os
 import csv
 
-GESTO = "mal"  # ← Cambia este valor por el nombre del gesto actual que quieres grabar
+GESTO = "tijera"  # ← Cambia este valor por el nombre del gesto actual que quieres grabar
 
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands()
