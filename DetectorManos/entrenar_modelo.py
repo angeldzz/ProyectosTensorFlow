@@ -4,7 +4,7 @@ import tensorflow as tf
 from sklearn.model_selection import train_test_split
 
 # Ruta de la carpeta con los datos
-carpeta_datos = "ProyectosTensorFlow/datos"
+carpeta_datos = "ProyectosTensorFlow/DetectorManos/datos"
 
 # Lista de gestos (debe coincidir con los nombres de los archivos CSV)
 gestos = ["papel","tijera","piedra", "lagarto", "bien", "mal"]
@@ -54,11 +54,11 @@ modelo.compile(
 modelo.summary()
 
 # Entrenar el modelo
-historial = modelo.fit(X_train, y_train, epochs=1000, batch_size=32, validation_data=(X_test, y_test))
+historial = modelo.fit(X_train, y_train, epochs=2000, batch_size=32, validation_data=(X_test, y_test))
 
 # Guardar el modelo entrenado
-modelo.save("ProyectosTensorFlow/gestos_modelo.keras")
-print("Modelo guardado como 'gestos_modelo.keras'")
+modelo.save("ProyectosTensorFlow/DetectorManos/gestos_modelo_v2.keras")
+print("Modelo guardado como 'gestos_modelo_v2.keras'")
 
 # Evaluar el modelo
 loss, accuracy = modelo.evaluate(X_test, y_test)

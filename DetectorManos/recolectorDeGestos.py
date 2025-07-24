@@ -1,10 +1,9 @@
 import cv2
 import mediapipe as mp
-import numpy as np
 import os
 import csv
 
-GESTO = "tijera"  # ← Cambia este valor por el nombre del gesto actual que quieres grabar
+GESTO = "tijera"  # Cambia este valor por el nombre del gesto actual que quieres grabar
 
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands()
@@ -13,10 +12,10 @@ mp_draw = mp.solutions.drawing_utils
 cap = cv2.VideoCapture(0)
 
 # Crear carpeta si no existe
-os.makedirs("ProyectosTensorFlow/datos", exist_ok=True)
+os.makedirs("ProyectosTensorFlow/DetectorManos/datos", exist_ok=True)
 
 # Archivo CSV para guardar los datos
-archivo_csv = f"ProyectosTensorFlow/datos/{GESTO}.csv"
+archivo_csv = f"ProyectosTensorFlow/DetectorManos/datos/{GESTO}.csv"
 f = open(archivo_csv, mode="a", newline='')
 writer = csv.writer(f)
 
@@ -26,6 +25,7 @@ print("[INFO] Pulsa 's' para guardar un ejemplo. Pulsa 'q' para salir.")
 while True:
     ret, frame = cap.read()
     if not ret:
+        print("[ERROR] No se pudo capturar el cuadro de la cámara.")
         break
 
     img_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -41,6 +41,7 @@ while True:
 
             # Guardar si se pulsa 's'
             if cv2.waitKey(1) & 0xFF == ord('s'):
+                print(f"Puntos capturados: {puntos}")  # Verifica si hay datos
                 writer.writerow(puntos)
                 print(f"[GUARDADO] Ejemplo de '{GESTO}' añadido.")
 
