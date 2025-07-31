@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing.image import img_to_array
+from keras.models import load_model
+from keras.preprocessing.image import img_to_array
 import os
 
 # Modelo preentrenado para detección de emociones basado en dataset FER2013
